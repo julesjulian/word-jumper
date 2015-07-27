@@ -56,9 +56,10 @@ findBreakSymbol = (text, symbols) ->
 # @param {atom#workspaceView#Editor#Cursor} cursor  - editor's cursor object
 # @param {Number} direction                         - movement direction
 # @param {Boolean} select                           - move cursor with selection
+# @param {Boolean} remove                           - remove selection
 # @param {Boolean} selection                        - selected range object
 ###
-move = (cursor, direction, select, selection=false) ->
+move = (cursor, direction, select, remove, selection=false) ->
   DEBUG && console.group "Moving cursor #%d", cursor.marker.id
 
   # Getting cursor's line number
@@ -116,6 +117,9 @@ move = (cursor, direction, select, selection=false) ->
   if select
     # Move selection
     selection.selectToBufferPosition(cursorPoint)
+    if remove
+      # remove selection
+      selection.delete()
   else
     # Just move cursor to new position
     cursor.setBufferPosition(cursorPoint)
@@ -128,10 +132,11 @@ move = (cursor, direction, select, selection=false) ->
 # `stopSymbols` setting variable.
 # @param {Number} direction - movement direction
 # @param {Boolean} select   - move cursor with selection
+# @param {Boolean} remove   - remove cursor with selection
 ###
-moveCursors = (direction, select) ->
+moveCursors = (direction, select, remove) ->
   selections = getEditor().getSelections()
-  move cursor, direction, select, selections[i] for cursor, i in getEditor()?.getCursors()
+  move cursor, direction, select, remove, selections[i] for cursor, i in getEditor()?.getCursors()
 
 module.exports =
   config:
@@ -152,3 +157,9 @@ module.exports =
 
       'word-jumper:select-left': ->
         moveCursors?directions.LEFT, true
+
+      'word-jumper:remove-right': ->
+        moveCursors?directions.RIGHT, true, true
+
+      'word-jumper:remove-left': ->
+        moveCursors?directions.LEFT, true, true

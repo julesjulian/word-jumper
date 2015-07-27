@@ -7,6 +7,9 @@ Provides ability to jump into camelCase words using:
 * `ctrl-alt-left` - to move cursor(s) left
 * `shift-ctrl-alt-left` - to move cursor(s) left with selection
 * `shift-ctrl-alt-right` - to move cursor(s) right with selection
+* `ctrl-delete` - to delete next sub-word
+* `ctrl-backspace` - to delete previous sub-word
+
 
 In action:
 ![omgwhoa][gif]
