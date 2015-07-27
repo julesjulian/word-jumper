@@ -18,7 +18,8 @@ directions = {RIGHT: 1, LEFT: 2}
 # @readonly
 # @type {String}
 ###
-defaultStopSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890 {}()[]?-`~\"'._=:;%|/\\"
+capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+defaultStopSymbols = capitalLetters + "01234567890 {}()[]?-`~\"'._=:;%|/\\"
 
 ###
 # Returns current editor.
@@ -48,7 +49,9 @@ getStopSymbols = -> atom.config.get("word-jumper")?.stopSymbols || defaultStopSy
 findBreakSymbol = (text, symbols) ->
   symbols = symbols || getStopSymbols()
   for letter, i in text
-    return i if symbols.indexOf(letter) != -1 and i != 0
+    if capitalLetters.indexOf(text[i]) == -1 or capitalLetters.indexOf(text[i-1]) == -1
+      if symbols.indexOf(text[i]) != -1 and i != 0
+        return i
   return text.length
 
 ###
