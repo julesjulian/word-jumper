@@ -1,7 +1,7 @@
 Word Jumper package
 ===========
 
-Provides ability to jump into camelCase words using:
+Provides ability to jump into camelCase and UPPER_CASE words using:
 
 * `ctrl-alt-right` - to move cursor(s) right
 * `ctrl-alt-left` - to move cursor(s) left
