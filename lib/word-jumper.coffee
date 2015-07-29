@@ -97,7 +97,7 @@ move = (cursor, direction, select, remove, selection=false) ->
   if cursor.isAtBeginningOfLine() and direction == directions.LEFT
     offset = 0
     row -= 1
-    column = getEditor().lineLengthForBufferRow(row) || 0
+    column = getEditor().lineTextForBufferRow(row).length || 0
 
   # If tried to move cursor to the right from beggin of the string
   # Search first symbol and move cursor there
