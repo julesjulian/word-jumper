@@ -1,1 +1,1 @@
-module.exports = require "./lib/word-jumper"
+module.exports = require "./lib/word-jumper-deluxe"

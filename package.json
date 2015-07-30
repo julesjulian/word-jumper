@@ -1,10 +1,10 @@
 {
-  "name": "word-jumper",
-  "main": "./lib/word-jumper",
-  "version": "0.3.0",
+  "name": "word-jumper-deluxe",
+  "main": "./lib/word-jumper-deluxe",
+  "version": "0.0.0",
   "private": true,
-  "description": "Move the cursor by each hill on camelCase",
-  "repository": "https://github.com/ajile/word-jumper",
+  "description": "Move the cursor by each hill on camelCase and UPPER_CASE",
+  "repository": "https://github.com/julesjulian/word-jumper-deluxe",
   "license": "MIT",
   "engines": {
     "atom": ">=0.60.0"

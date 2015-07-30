@@ -1,4 +1,4 @@
-Word Jumper package
+Word Jumper Deluxe
 ===========
 
 Provides ability to jump into camelCase and UPPER_CASE words using:
@@ -10,6 +10,7 @@ Provides ability to jump into camelCase and UPPER_CASE words using:
 * `ctrl-delete` - to delete next sub-word
 * `ctrl-backspace` - to delete previous sub-word
 
+Enhanced version of ajile's word-jumper package (https://github.com/ajile/word-jumper). 
 
 In action:
 ![omgwhoa][gif]

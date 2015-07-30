@@ -31,7 +31,7 @@ getEditor = -> atom.workspace.getActiveTextEditor()
 # Returns stop symbols from the local settings or local scope.
 # @return {String}
 ###
-getStopSymbols = -> atom.config.get("word-jumper")?.stopSymbols || defaultStopSymbols
+getStopSymbols = -> atom.config.get("word-jumper-deluxe")?.stopSymbols || defaultStopSymbols
 
 ###
 # Function returns sequence number of the first founded symbol in the
@@ -149,20 +149,20 @@ module.exports =
 
   activate: ->
     atom.commands.add 'atom-workspace',
-      'word-jumper:move-right': ->
+      'word-jumper-deluxe:move-right': ->
         moveCursors?directions.RIGHT
 
-      'word-jumper:move-left': ->
+      'word-jumper-deluxe:move-left': ->
         moveCursors?directions.LEFT
 
-      'word-jumper:select-right': ->
+      'word-jumper-deluxe:select-right': ->
         moveCursors?directions.RIGHT, true
 
-      'word-jumper:select-left': ->
+      'word-jumper-deluxe:select-left': ->
         moveCursors?directions.LEFT, true
 
-      'word-jumper:remove-right': ->
+      'word-jumper-deluxe:remove-right': ->
         moveCursors?directions.RIGHT, true, true
 
-      'word-jumper:remove-left': ->
+      'word-jumper-deluxe:remove-left': ->
         moveCursors?directions.LEFT, true, true

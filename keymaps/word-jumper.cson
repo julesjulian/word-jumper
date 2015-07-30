@@ -1,9 +1,0 @@
-'atom-text-editor':
-  'ctrl-alt-right': 'word-jumper:move-right'
-  'ctrl-alt-left': 'word-jumper:move-left'
-
-  'ctrl-alt-shift-right': 'word-jumper:select-right'
-  'ctrl-alt-shift-left': 'word-jumper:select-left'
-
-  'ctrl-delete': 'word-jumper:remove-right'
-  'ctrl-backspace': 'word-jumper:remove-left'
