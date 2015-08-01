@@ -3,14 +3,14 @@ Word Jumper Deluxe
 
 Provides ability to jump into camelCase and UPPER_CASE words using:
 
-* `ctrl-alt-right` - to move cursor(s) right
-* `ctrl-alt-left` - to move cursor(s) left
-* `shift-ctrl-alt-left` - to move cursor(s) left with selection
-* `shift-ctrl-alt-right` - to move cursor(s) right with selection
+* `ctrl-right` - to move cursor(s) right
+* `ctrl-left` - to move cursor(s) left
+* `shift-ctrl-left` - to move cursor(s) left with selection
+* `shift-ctrl-right` - to move cursor(s) right with selection
 * `ctrl-delete` - to delete next sub-word
 * `ctrl-backspace` - to delete previous sub-word
 
-Enhanced version of ajile's word-jumper package (https://github.com/ajile/word-jumper). 
+This is an enhanced version of ajile's word-jumper package (https://github.com/ajile/word-jumper). 
 
 In action:
 ![omgwhoa][gif]

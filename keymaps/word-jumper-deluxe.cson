@@ -1,9 +1,9 @@
-'atom-text-editor':
-  'ctrl-alt-right': 'word-jumper-deluxe:move-right'
-  'ctrl-alt-left': 'word-jumper-deluxe:move-left'
+'atom-workspace atom-text-editor':
+  'ctrl-right': 'word-jumper-deluxe:move-right'
+  'ctrl-left': 'word-jumper-deluxe:move-left'
 
-  'ctrl-alt-shift-right': 'word-jumper-deluxe:select-right'
-  'ctrl-alt-shift-left': 'word-jumper-deluxe:select-left'
+  'ctrl-shift-right': 'word-jumper-deluxe:select-right'
+  'ctrl-shift-left': 'word-jumper-deluxe:select-left'
 
   'ctrl-delete': 'word-jumper-deluxe:remove-right'
   'ctrl-backspace': 'word-jumper-deluxe:remove-left'
