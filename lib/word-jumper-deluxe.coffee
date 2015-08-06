@@ -19,7 +19,9 @@ directions = {RIGHT: 1, LEFT: 2}
 # @type {String}
 ###
 capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+smallLetters = "abcdefghijklmnopqrstuvwxyz"
 defaultStopSymbols = capitalLetters + "01234567890 {}()[]?-`~\"'._=:;%|/\\"
+enclosingGuys = "[]{}()<>`\"'"
 
 ###
 # Returns current editor.
@@ -46,12 +48,14 @@ getStopSymbols = -> atom.config.get("word-jumper-deluxe")?.stopSymbols || defaul
 # findBreakSymbol("somestring");   // returns 11
 # @return {Number}   - position of the first founded 'stop' symbol.
 ###
-findBreakSymbol = (text, symbols) ->
+findBreakSymbol = (text, symbols, direction) ->
   symbols = symbols || getStopSymbols()
   for letter, i in text
     if capitalLetters.indexOf(text[i]) == -1 or capitalLetters.indexOf(text[i-1]) == -1
       if symbols.indexOf(text[i]) != -1 and i != 0
-        return i
+          if enclosingGuys.indexOf(text[i]) != -1 and direction == directions.LEFT
+              return i - 1
+          return i
   return text.length
 
 ###
@@ -88,7 +92,7 @@ move = (cursor, direction, select, remove, selection=false) ->
     _text = textLeft.split("").reverse().join("")
 
   # Getting cursor's position offset in the line
-  offset = findBreakSymbol _text
+  offset = findBreakSymbol _text, getStopSymbols(), direction
 
   # If direction movement is left reverse offset as reversed a text search
   if direction == directions.LEFT
@@ -103,7 +107,7 @@ move = (cursor, direction, select, remove, selection=false) ->
   # Search first symbol and move cursor there
   if cursor.isAtBeginningOfLine() and direction == directions.RIGHT
     if !cursor.isInsideWord()
-      offset = findBreakSymbol _text, getStopSymbols().replace(/\s/, '') + "abcdefghijklmnopqrstuvwxyz"
+      offset = findBreakSymbol _text, getStopSymbols().replace(/\s/, '') + smallLetters
 
   # If cursor at the end of the line, move cursor to the below line
   if cursor.isAtEndOfLine() and direction == directions.RIGHT
