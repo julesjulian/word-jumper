@@ -42,15 +42,21 @@ describe "LineJumper", ->
       atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-right') for [1..15]
       atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-left') for [1..3]
       pos = editor.getCursorBufferPosition()
-      expect(pos).toEqual [0,36]
+      expect(pos).toEqual [0,38]
 
-    it "selectes right 2-times", ->
+    it "selects right 2-times", ->
       atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:select-right') for [1..2]
       selectedText = editor.getLastSelection().getText()
       expect(selectedText).toEqual "var test"
 
-    it "selectes right 5-times and left 2-times", ->
+    it "selects right 5-times and left 2-times", ->
       atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:select-right') for [1..5]
       atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:select-left') for [1..2]
       selectedText = editor.getLastSelection().getText()
       expect(selectedText).toEqual "var testCamel"
+
+    it "does not select opening parenthesis", ->
+      atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-right') for [1..39]
+      atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:select-left')
+      selectedText = editor.getLastSelection().getText()
+      expect(selectedText).toEqual "argument"
