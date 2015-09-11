@@ -55,6 +55,8 @@ findBreakSymbol = (text, symbols, direction) ->
       if symbols.indexOf(text[i]) != -1 and i != 0
           if enclosingGuys.indexOf(text[i]) != -1 and direction == directions.LEFT
               return i - 1
+          if direction == directions.LEFT and text[i..i+1] == "  "
+              return i - 1
           return i
   return text.length
 

@@ -60,3 +60,9 @@ describe "LineJumper", ->
       atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:select-left')
       selectedText = editor.getLastSelection().getText()
       expect(selectedText).toEqual "argument"
+
+    it "does not delete indentation space", ->
+      atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-right') for [1..45]
+      atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:remove-left')
+      selectedText = editor.lineTextForBufferRow(3)
+      expect(selectedText).toEqual "    _indented()"
