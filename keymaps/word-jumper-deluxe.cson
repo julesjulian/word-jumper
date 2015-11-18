@@ -1,9 +1,21 @@
-'atom-workspace atom-text-editor':
-  'ctrl-right': 'word-jumper-deluxe:move-right'
-  'ctrl-left': 'word-jumper-deluxe:move-left'
+'.platform-darwin':
+  'atom-workspace atom-text-editor':
+    'alt-right': 'word-jumper-deluxe:move-right'
+    'alt-left': 'word-jumper-deluxe:move-left'
 
-  'ctrl-shift-right': 'word-jumper-deluxe:select-right'
-  'ctrl-shift-left': 'word-jumper-deluxe:select-left'
+    'alt-shift-right': 'word-jumper-deluxe:select-right'
+    'alt-shift-left': 'word-jumper-deluxe:select-left'
 
-  'ctrl-delete': 'word-jumper-deluxe:remove-right'
-  'ctrl-backspace': 'word-jumper-deluxe:remove-left'
+    'alt-delete': 'word-jumper-deluxe:remove-right'
+    'alt-backspace': 'word-jumper-deluxe:remove-left'
+
+'.platform-win32, .platform-linux':
+  'atom-workspace atom-text-editor':
+    'ctrl-right': 'word-jumper-deluxe:move-right'
+    'ctrl-left': 'word-jumper-deluxe:move-left'
+
+    'ctrl-shift-right': 'word-jumper-deluxe:select-right'
+    'ctrl-shift-left': 'word-jumper-deluxe:select-left'
+
+    'ctrl-delete': 'word-jumper-deluxe:remove-right'
+    'ctrl-backspace': 'word-jumper-deluxe:remove-left'
