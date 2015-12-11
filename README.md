@@ -10,6 +10,8 @@ Provides ability to jump into camelCase and UPPER_CASE words using:
 * `ctrl-delete` - to delete next sub-word
 * `ctrl-backspace` - to delete previous sub-word
 
+Replace `ctrl` with `alt` if you are on OS X - just as native bindings.
+
 This is an enhanced version of ajile's word-jumper package (https://github.com/ajile/word-jumper). 
 
 In action:
