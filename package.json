@@ -1,7 +1,7 @@
 {
   "name": "word-jumper-deluxe",
   "main": "./lib/word-jumper-deluxe",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Move the cursor by each hill on camelCase and UPPER_CASE",
   "repository": "https://github.com/julesjulian/word-jumper-deluxe",
