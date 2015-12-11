@@ -49,16 +49,18 @@ getStopSymbols = -> atom.config.get("word-jumper-deluxe")?.stopSymbols || defaul
 # @return {Number}   - position of the first founded 'stop' symbol.
 ###
 findBreakSymbol = (text, symbols, direction) ->
-  symbols = symbols || getStopSymbols()
-  for letter, i in text
-    if capitalLetters.indexOf(text[i]) == -1 or capitalLetters.indexOf(text[i-1]) == -1
-      if symbols.indexOf(text[i]) != -1 and i != 0
-          if enclosingGuys.indexOf(text[i]) != -1 and direction == directions.LEFT
-              return i - 1
-          if direction == directions.LEFT and text[i..i+1] == "  "
-              return i - 1
-          return i
-  return text.length
+    symbols = symbols || getStopSymbols()
+    for letter, i in text
+        if capitalLetters.indexOf(text[i]) == -1 or capitalLetters.indexOf(text[i-1]) == -1
+            if symbols.indexOf(text[i]) != -1 and i != 0
+                if enclosingGuys.indexOf(text[i]) != -1 and direction == directions.LEFT
+                    return i - 1
+                if direction == directions.LEFT and text[i..i+1] == "  "
+                    return i - 1
+                return i
+        if direction == directions.LEFT and text[i..i+3] == "    "
+            return i + 3
+    return text.length
 
 ###
 # Function move cursor to given direction taking into account 'stop' symbols.
