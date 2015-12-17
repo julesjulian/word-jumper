@@ -75,7 +75,6 @@ move = (cursor, direction, select, remove, selection=false) ->
 
   # Getting cursor's line number
   row = cursor.getScreenRow()
-
   # Getting cursor's position in the line
   column = cursor.getScreenColumn()
 
@@ -103,9 +102,12 @@ move = (cursor, direction, select, remove, selection=false) ->
     offset = offset * (-1) - 1
 
   if cursor.isAtBeginningOfLine() and direction == directions.LEFT
-    offset = 0
-    row -= 1
-    column = getEditor().lineTextForBufferRow(row).length || 0
+    if cursor.getScreenRow() - 1 < 0
+        row = 0
+        column = 0
+    else
+        row = cursor.getScreenRow() - 1
+        column = getEditor().lineTextForBufferRow(row).length
 
   # If tried to move cursor to the right from beggin of the string
   # Search first symbol and move cursor there
