@@ -55,12 +55,14 @@ describe "LineJumper", ->
             selectedText = editor.getLastSelection().getText()
             expect(selectedText).toEqual "var testCamel"
 
+    describe "parentheses", ->
         it "does not select opening parenthesis", ->
             atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-right') for [1..39]
             atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:select-left')
             selectedText = editor.getLastSelection().getText()
             expect(selectedText).toEqual "argument"
 
+    describe "indentation space", ->
         it "does not delete indentation space", ->
             atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-right') for [1..45]
             atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:remove-left')
@@ -72,3 +74,9 @@ describe "LineJumper", ->
             atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-left')
             pos = editor.getCursorBufferPosition()
             expect(pos).toEqual [3,0]
+
+    describe "corner cases", ->
+        it "can deal with the beginning of a file", ->
+            pos = editor.getCursorBufferPosition()
+            expect(pos).toEqual [0,0]
+            atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-left')
