@@ -107,7 +107,7 @@ move = (cursor, direction, select, remove, selection=false) ->
         column = 0
     else
         row = cursor.getScreenRow() - 1
-        column = getEditor().lineTextForBufferRow(row).length
+        column = getEditor().lineTextForBufferRow(row).length + 1
 
   # If tried to move cursor to the right from beggin of the string
   # Search first symbol and move cursor there

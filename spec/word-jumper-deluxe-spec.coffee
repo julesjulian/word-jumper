@@ -80,3 +80,9 @@ describe "LineJumper", ->
             pos = editor.getCursorBufferPosition()
             expect(pos).toEqual [0,0]
             atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-left')
+
+        it "jumps correctly one line back", ->
+            editor.setCursorBufferPosition [5, 0]
+            atom.commands.dispatch(workspaceElement, 'word-jumper-deluxe:move-left')
+            pos = editor.getCursorBufferPosition()
+            expect(pos).toEqual [4, 6]
